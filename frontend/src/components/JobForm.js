@@ -22,10 +22,9 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
 const API =
 process.env.REACT_APP_API_URL ||
-"https://candidate-shortlisting-backend.onrender.com";
+"https://candidate-shortlisting-system-f9g6.onrender.com";
 function JobForm({ activePage }) {
 
   const [name, setName] =
