@@ -27,8 +27,6 @@ function Recommendation() {
         "https://employee-backend-j9uv.onrender.com/api/employees"
       );
 
-      console.log(res.data);
-
       setEmployees(res.data);
 
     } catch (error) {
@@ -74,12 +72,12 @@ function Recommendation() {
       {
         employees.length === 0 ? (
 
-          <div
-            className="employee-card"
-          >
+          <div className="employee-card">
+
             <h2>
               No Employees Found
             </h2>
+
           </div>
 
         ) : (
@@ -110,11 +108,7 @@ function Recommendation() {
               <p>
                 <b>Skills:</b>
                 {" "}
-                {
-                  employee.skills.join(
-                    ", "
-                  )
-                }
+                {employee.skills.join(", ")}
               </p>
 
               <button
@@ -136,9 +130,7 @@ function Recommendation() {
       {
         recommendation && (
 
-          <div
-            className="recommendation-box"
-          >
+          <div className="recommendation-box">
 
             <h2>
               AI Recommendation
