@@ -27,7 +27,20 @@ function Recommendation() {
         "https://employee-backend-j9uv.onrender.com/api/employees"
       );
 
-      setEmployees(res.data);
+      if (
+        Array.isArray(res.data)
+      ) {
+
+        setEmployees(res.data);
+
+      } else if (
+        res.data.employees
+      ) {
+
+        setEmployees(
+          res.data.employees
+        );
+      }
 
     } catch (error) {
 
@@ -108,7 +121,11 @@ function Recommendation() {
               <p>
                 <b>Skills:</b>
                 {" "}
-                {employee.skills.join(", ")}
+                {
+                  employee.skills.join(
+                    ", "
+                  )
+                }
               </p>
 
               <button

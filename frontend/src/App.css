@@ -7,7 +7,7 @@
 body{
   font-family:Arial, Helvetica, sans-serif;
 
-  background-image:url("https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif");
+  background-image:url("https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif");
 
   background-size:cover;
   background-position:center;
@@ -31,8 +31,9 @@ body{
 }
 
 .logo{
-  font-size:40px;
+  font-size:28px;
   font-weight:bold;
+  color:white;
 }
 
 .nav-links{
@@ -56,7 +57,7 @@ body{
 
   padding:30px;
 
-  background:rgba(255,255,255,0.12);
+  background:rgba(0,0,0,0.55);
 
   backdrop-filter:blur(8px);
 
@@ -66,37 +67,7 @@ body{
 .page-title{
   color:white;
   margin-bottom:20px;
-  font-size:45px;
-}
-
-.form-container{
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-
-  margin-bottom:40px;
-}
-
-.form-container input{
-  padding:14px;
-  border:none;
-  border-radius:8px;
-  font-size:16px;
-}
-
-.form-container button{
-  background:#2563eb;
-  color:white;
-
-  border:none;
-
-  padding:14px;
-
-  border-radius:8px;
-
-  cursor:pointer;
-
-  font-size:16px;
+  font-size:42px;
 }
 
 .employee-card{
@@ -118,7 +89,7 @@ body{
 }
 
 .ai-btn{
-  background:#16a34a;
+  background:#2563eb;
   color:white;
 
   border:none;
@@ -140,56 +111,4 @@ body{
   border-radius:15px;
 
   margin-top:30px;
-}
-
-.auth-container{
-  width:400px;
-
-  margin:80px auto;
-
-  background:rgba(255,255,255,0.12);
-
-  backdrop-filter:blur(8px);
-
-  padding:40px;
-
-  border-radius:20px;
-}
-
-.auth-container h1{
-  color:white;
-
-  margin-bottom:25px;
-
-  text-align:center;
-}
-
-.auth-container input{
-  width:100%;
-
-  padding:14px;
-
-  margin-bottom:15px;
-
-  border:none;
-
-  border-radius:8px;
-}
-
-.auth-container button{
-  width:100%;
-
-  padding:14px;
-
-  border:none;
-
-  border-radius:8px;
-
-  background:#2563eb;
-
-  color:white;
-
-  cursor:pointer;
-
-  font-size:16px;
 }
