@@ -1,111 +1,69 @@
-import { useState } from "react";
+import React from "react";
 
-import "./index.css";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-import JobForm from "./components/JobForm";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+import Recommendation from "./pages/Recommendation";
+
+import Navbar from "./components/Navbar";
+
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
 
-  const [activePage,
-    setActivePage] =
-    useState("dashboard");
-
   return (
 
-    <div className="main-layout">
+    <BrowserRouter>
 
-      <div className="sidebar">
+      <Navbar />
 
-        <h2>
-          AI Candidate
-          <br />
-          Shortlisting
-        </h2>
+      <Routes>
 
-        <ul>
+        {/* PUBLIC */}
 
-          <li
-            onClick={() =>
-              setActivePage(
-                "dashboard"
-              )
-            }
-          >
-            Dashboard
-          </li>
-
-          <li
-            onClick={() =>
-              setActivePage(
-                "add"
-              )
-            }
-          >
-            Add Candidate
-          </li>
-
-          <li
-            onClick={() =>
-              setActivePage(
-                "list"
-              )
-            }
-          >
-            Candidate List
-          </li>
-
-          <li
-            onClick={() =>
-              setActivePage(
-                "match"
-              )
-            }
-          >
-            Match Candidates
-          </li>
-
-          <li
-            onClick={() =>
-              setActivePage(
-                "ai"
-              )
-            }
-          >
-            AI Shortlist
-          </li>
-
-          <li
-            onClick={() =>
-              setActivePage(
-                "analytics"
-              )
-            }
-          >
-            Analytics
-          </li>
-
-        </ul>
-
-      </div>
-
-      <div className="content">
-
-        <h1>
-          AI Candidate Shortlisting System
-        </h1>
-
-        <p className="subtitle">
-          Smart Recruitment.
-          Better Decisions.
-        </p>
-
-        <JobForm
-          activePage={activePage}
+        <Route
+          path="/"
+          element={<Login />}
         />
 
-      </div>
+        <Route
+          path="/signup"
+          element={<Signup />}
+        />
 
-    </div>
+        {/* PROTECTED */}
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+
+              <Dashboard />
+
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/recommendation"
+          element={
+            <ProtectedRoute>
+
+              <Recommendation />
+
+            </ProtectedRoute>
+          }
+        />
+
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 
