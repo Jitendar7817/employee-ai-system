@@ -45,7 +45,7 @@ function EmployeeForm({ setRefresh }) {
       };
 
       await axios.post(
-        "http://localhost:5000/api/employees",
+        "https://employee-backend-j9uv.onrender.com/api/employees",
         employeeData
       );
 

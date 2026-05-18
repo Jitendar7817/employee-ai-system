@@ -25,7 +25,7 @@ function EmployeeList({ refresh }) {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/employees"
+        ""
       );
 
       setEmployees(res.data.employees);
@@ -41,7 +41,7 @@ function EmployeeList({ refresh }) {
     try {
 
       await axios.delete(
-        `http://localhost:5000/api/employees/${id}`
+        `https://employee-backend-j9uv.onrender.com/api/employees/${id}`
       );
 
       fetchEmployees();
@@ -59,7 +59,7 @@ function EmployeeList({ refresh }) {
     try {
 
       const res = await axios.post(
-        "http://localhost:5000/api/ai/recommend",
+        "https://employee-backend-j9uv.onrender.com/api/employees/recommend",
         employee
       );
 
