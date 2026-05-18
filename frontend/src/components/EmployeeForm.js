@@ -1,25 +1,25 @@
-// src/components/EmployeeForm.js
-
 import React, { useState } from "react";
 
 import axios from "axios";
 
-function EmployeeForm({ setRefresh }) {
+function EmployeeForm() {
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    department: "",
-    skills: "",
-    performanceScore: "",
-    experience: "",
-  });
+  const [formData, setFormData] =
+    useState({
+      name:"",
+      email:"",
+      department:"",
+      skills:"",
+      performanceScore:"",
+      experience:"",
+    });
 
   const handleChange = (e) => {
 
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]:
+      e.target.value,
     });
   };
 
@@ -30,18 +30,11 @@ function EmployeeForm({ setRefresh }) {
     try {
 
       const employeeData = {
-
         ...formData,
 
-        skills: formData.skills.split(","),
-
-        performanceScore: Number(
-          formData.performanceScore
-        ),
-
-        experience: Number(
-          formData.experience
-        ),
+        skills:
+        formData.skills
+        .split(","),
       };
 
       await axios.post(
@@ -49,40 +42,39 @@ function EmployeeForm({ setRefresh }) {
         employeeData
       );
 
-      alert("Employee Added Successfully");
+      alert(
+        "Employee Added Successfully"
+      );
 
-      setFormData({
-        name: "",
-        email: "",
-        department: "",
-        skills: "",
-        performanceScore: "",
-        experience: "",
-      });
-
-      setRefresh((prev) => !prev);
+      window.location.reload();
 
     } catch (error) {
 
       console.log(error);
 
-      alert("Error Adding Employee");
+      alert(
+        "Error Adding Employee"
+      );
     }
   };
 
   return (
 
-    <div>
+    <div className="form-section">
 
-      <h2>Add Employee</h2>
+      <h2 className="section-title">
+        Add Employee
+      </h2>
 
-      <form onSubmit={handleSubmit}>
+      <form
+        className="employee-form"
+        onSubmit={handleSubmit}
+      >
 
         <input
           type="text"
           name="name"
           placeholder="Employee Name"
-          value={formData.name}
           onChange={handleChange}
           required
         />
@@ -91,7 +83,6 @@ function EmployeeForm({ setRefresh }) {
           type="email"
           name="email"
           placeholder="Employee Email"
-          value={formData.email}
           onChange={handleChange}
           required
         />
@@ -100,7 +91,6 @@ function EmployeeForm({ setRefresh }) {
           type="text"
           name="department"
           placeholder="Department"
-          value={formData.department}
           onChange={handleChange}
           required
         />
@@ -109,7 +99,6 @@ function EmployeeForm({ setRefresh }) {
           type="text"
           name="skills"
           placeholder="Skills (React,Node)"
-          value={formData.skills}
           onChange={handleChange}
           required
         />
@@ -118,7 +107,6 @@ function EmployeeForm({ setRefresh }) {
           type="number"
           name="performanceScore"
           placeholder="Performance Score"
-          value={formData.performanceScore}
           onChange={handleChange}
           required
         />
@@ -127,7 +115,6 @@ function EmployeeForm({ setRefresh }) {
           type="number"
           name="experience"
           placeholder="Experience"
-          value={formData.experience}
           onChange={handleChange}
           required
         />
