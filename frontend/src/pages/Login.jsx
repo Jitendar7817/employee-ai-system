@@ -1,5 +1,3 @@
-// src/pages/Login.jsx
-
 import React, { useState } from "react";
 
 import axios from "axios";
@@ -10,16 +8,18 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] =
+    useState({
+      email:"",
+      password:"",
+    });
 
   const handleChange = (e) => {
 
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]:
+      e.target.value,
     });
   };
 
@@ -39,58 +39,47 @@ function Login() {
         res.data.token
       );
 
-      alert("Login Successful");
-
       navigate("/dashboard");
 
     } catch (error) {
 
-      console.log(error);
-
-      alert(
-        error.response?.data?.message ||
-        "Login Failed"
-      );
+      alert("Invalid Credentials");
     }
   };
 
   return (
 
-    <div className="page-container">
+    <div className="auth-container">
 
-      <div className="card form-container">
+      <h1>
+        Employee Login
+      </h1>
 
-        <h1 className="form-title">
-          Employee Login
-        </h1>
+      <form onSubmit={handleSubmit}>
 
-        <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+        <button type="submit">
+          Login
+        </button>
 
-          <button type="submit">
-            Login
-          </button>
-
-        </form>
-
-      </div>
+      </form>
 
     </div>
   );
